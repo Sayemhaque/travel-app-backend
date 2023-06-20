@@ -6,6 +6,7 @@ require("dotenv").config();
 const PORT = process.env.PORT = 3000;
 const connectToDb = require("./db/db.js")
 const postRoute = require("./routes/postRoute.js")
+const userRoute = require("./routes/userRoute.js")
 
 
 // middleware
@@ -27,8 +28,8 @@ connectToDb()
   app.get("/" , (req,res) => {
     res.send("i am running")
   })
-  
   app.use("/posts", postRoute)
+  app.use("/user", userRoute)
 
 
   app.listen(PORT, () => {
